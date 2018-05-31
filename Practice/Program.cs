@@ -8,14 +8,20 @@ namespace Practice
         {
             string str1 = Console.ReadLine();
             string str2 = Console.ReadLine();
+            string str3 = Console.ReadLine();
 
             // アナグラム
             //bool b = Anagram(str1, str2);
             //Console.WriteLine(b);
 
-            double[] answer = Tax(double.Parse(str1), double.Parse(str2));
-            Console.WriteLine("{0}セント", answer[0]);
-            
+            // 税率計算
+            //double[] answer = Tax(double.Parse(str1), double.Parse(str2));
+            //Console.WriteLine("{0}セント", answer[0]);
+
+            // 体積計算
+            double answer = Box(double.Parse(str1), double.Parse(str2), double.Parse(str3));
+            Console.WriteLine("{0}リットル", answer);
+
             Console.ReadLine();
         }
 
@@ -105,6 +111,19 @@ namespace Practice
             double[] cent = new double[1];
             cent[0] = (dollar * taxRate) * 100;
             return cent;
+        }
+
+        /// <summary>
+        /// 体積計算
+        /// 単位がセンチメートルの3つの引数をとり、体積を計算しリットルとして返す
+        /// </summary>
+        /// <param name="vertical"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        private static double Box(double vertical, double width, double height)
+        {
+            return vertical * width * height / 1000;
         }
     }
 }
